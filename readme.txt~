@@ -1,17 +1,13 @@
-## to convert your jped pictures to eps
-convert essec.jpg essec.eps
+sudo latex article_sduprey_iswag_02_06_2014
+sudo latex article_sduprey_iswag_02_06_2014
+sudo bibtex article_sduprey_iswag_02_06_2014
+sudo bibtex article_sduprey_iswag_02_06_2014
+sudo latex article_sduprey_iswag_02_06_2014
+sudo latex article_sduprey_iswag_02_06_2014
+sudo dvips article_sduprey_iswag_02_06_2014.dvi 
+sudo ps2pdf article_sduprey_iswag_02_06_2014.ps
 
-## use kile to parse your file
-sudo latex Maineconometrie.tex
+# visualizing the pdf
+sudo xpdf article_sduprey_iswag_02_06_2014.pdf 
 
-## don't go for latexpdf : it will take the EPS figures
-sudo dvips -o Maineconometry.ps Maineconometry.dvi 
-sudo ps2pdf Maineconometry.ps Maineconometry.pdf 
-sudo xpdf Maineconometrie.pdf
-
-## for a presentation
-sudo dvips -t landscape PRESENTATIONTHESISSHORT.dvi 
-sudo ps2pdf PRESENTATIONTHESISSHORT.ps PRESENTATIONTHESISSHORT.pdf 
-sudo xpdf PRESENTATIONTHESISSHORT.pdf 
-
-
+# editing the pdf

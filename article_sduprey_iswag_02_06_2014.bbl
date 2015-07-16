@@ -1,0 +1,86 @@
+\begin{thebibliography}{10}
+
+\bibitem{apache_hadoop}
+{\em Hadoop}.
+\newblock http://hadoop.apache.org.
+
+\bibitem{neo4j}
+{\em Neo4j}.
+\newblock http://neo4j.com.
+
+\bibitem{scala}
+{\em Scala}.
+\newblock http://www.scala-lang.org.
+
+\bibitem{spark}
+{\em Spark}.
+\newblock https://spark.apache.org.
+
+\bibitem{graphX}
+{\em Spark GraphX}.
+\newblock https://spark.apache.org/graphx/.
+
+\bibitem{page_rank}
+S.~Brin and L.~Page.
+\newblock The anatomy of a large-scale hypertextual web search engine.
+\newblock {\em WWW}, 1998.
+
+\bibitem{learning_to_rank}
+Qin T. Liu T.Y. Tsai M.F. Li~H. Cao, Z.
+\newblock Learning to rank: from pairwise approach to listwise approach.
+\newblock {\em Proc. of the 24th Intl. Conference on Machine Learning}, page
+  129136, 2007.
+
+\bibitem{sim_annealing}
+C.~Sanchez F.~Xhafa, A.~Barolli and L.~Barolli.
+\newblock A simulated annealing algorithm for router nodes placement problem in
+  wireless mesh networks.
+\newblock {\em Simulation Modelling Practice and Theory}, 19:pp. 22762284,
+  2011.
+
+\bibitem{gen_algo}
+D.~E. Goldberg and J.~H. Holland.
+\newblock {\em Genetic algorithms and machine learning. Machine Learning}.
+\newblock Springer, 1988.
+
+\bibitem{hadoop_spark_benchmark}
+D.~E. Goldberg and J.~H. Holland.
+\newblock {\em Big Data Benchmarks, Performance Optimization, and Emerging
+  Hardware}.
+\newblock Springer, 2014.
+
+\bibitem{gen_algo_web}
+Keivan Kianmehr Reda Alhajj Jon~Rokne Iltae~Lee, Negar~Koochakzadeh.
+\newblock {\em Integrating Genetic Algorithms and Fuzzy Logic for Web Structure
+  Optimization}, volume~12.
+\newblock Springer, 2010.
+
+\bibitem{map_reduce}
+Sanjay~Ghemawat Jeffrey~Dean.
+\newblock Mapreduce: a flexible data processing tool.
+\newblock {\em Commun. ACM}, 53:72--77, 2010.
+
+\bibitem{spark_methodo}
+Tathagata Das Ankur Dave Justin Ma Murphy McCauley Michael J. Franklin Scott
+  Shenker Ion~Stoica Matei~Zaharia, Mosharaf~Chowdhury.
+\newblock Resilient distributed datasets: A fault-tolerant abstraction for
+  in-memory cluster computing.
+\newblock {\em Journal of University of California, Berkeley}, 2012.
+
+\bibitem{incremental_ram}
+R.~Rodrigues U. A.~Acar P.~Bhatotia, A.~Wieder and R.~Pasquin.
+\newblock Mapreduce for incremental computations.
+\newblock {\em ACM SOCC}, 2011.
+
+\bibitem{stat_learning}
+Vapnik V.N.
+\newblock {\em Statistical Learning Theory}.
+\newblock Wiley, 1998.
+
+\bibitem{page_rank_approx}
+Li-Tal~Mashiach Ziv Bar-Yossef.
+\newblock Local approximation of pagerank and reverse pagerank.
+\newblock {\em Proceedings of the 17th ACM Conference on Information and
+  Knowledge Management (CIKM)}, pages PP. 279--288, 2008.
+
+\end{thebibliography}
