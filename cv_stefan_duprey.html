@@ -1,205 +1,62 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Profil Stefan Duprey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Links</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
 
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
 
-<style>
-body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f3f4f6;
-}
+        h1 {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #333;
+        }
 
-/* ===== PAGE 1 STYLES ===== */
-.slide-container {
-    width: 1280px;
-    height: 720px;
-    position: relative;
-    background-color: #0f172a;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    margin: 0 auto 4rem;
-}
+        .link-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-.bg-shape-1 {
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 600px;
-    height: 600px;
-    background-color: #4338ca;
-    border-radius: 50%;
-    opacity: 0.2;
-    z-index: 0;
-}
+        a.button-link {
+            text-decoration: none;
+            background-color: #007acc;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
 
-.bg-shape-2 {
-    position: absolute;
-    bottom: -50px;
-    left: -50px;
-    width: 400px;
-    height: 400px;
-    background-color: #be185d;
-    border-radius: 50%;
-    opacity: 0.15;
-    z-index: 0;
-}
-
-.bg-shape-3 {
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    width: 200px;
-    height: 200px;
-    background-color: #2563eb;
-    border-radius: 50%;
-    opacity: 0.1;
-    filter: blur(40px);
-    z-index: 0;
-}
-
-.glass-card {
-    background-color: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-}
-
-.profile-img-placeholder {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background-color: #374151;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 4px solid #6366f1;
-}
-
-.skill-tag {
-    background-color: rgba(99, 102, 241, 0.2);
-    border: 1px solid rgba(99, 102, 241, 0.5);
-    color: #e0e7ff;
-    padding: 6px 16px;
-    border-radius: 9999px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    display: inline-block;
-}
-
-.content-wrapper {
-    z-index: 10;
-    flex: 1;
-    display: flex;
-    padding: 4rem 5rem;
-}
-
-.left-panel {
-    flex: 0 0 40%;
-    padding-right: 3rem;
-    border-right: 1px solid rgba(255,255,255,0.1);
-}
-
-.right-panel {
-    flex: 1;
-    padding-left: 3rem;
-}
-
-.info-item {
-    display: flex;
-    margin-bottom: 1.5rem;
-}
-
-.info-icon {
-    width: 48px;
-    height: 48px;
-    background-color: #1e293b;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    color: #6366f1;
-}
-</style>
+        a.button-link:hover {
+            background-color: #005f99;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
-
 <body>
-
-<!-- ================= PAGE 1 ================= -->
-<div class="slide-container">
-    <div class="bg-shape-1"></div>
-    <div class="bg-shape-2"></div>
-    <div class="bg-shape-3"></div>
-
-    <div class="content-wrapper">
-        <div class="left-panel">
-            <div class="profile-img-placeholder mb-6">
-                <i class="fas fa-user-tie fa-5x text-gray-400"></i>
-            </div>
-
-            <p class="text-indigo-400 font-bold uppercase text-sm">Profil Professionnel</p>
-            <h1 class="text-5xl font-extrabold mb-4">Stefan<br/>Duprey</h1>
-
-            <div class="glass-card p-4 mb-6 inline-block">
-                <h2 class="text-xl font-bold">Expert Data Science, AI & Blockchain</h2>
-            </div>
-        </div>
-
-        <div class="right-panel">
-            <h3 class="text-2xl font-bold mb-4">Résumé & Expertise</h3>
-            <p class="text-gray-300 mb-6">
-                Expert transverse avec plus de 20 ans d'expérience en mathématiques,
-                Data Science et ingénierie logicielle.
-            </p>
-
-            <div>
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">AI</span>
-                <span class="skill-tag">Blockchain</span>
-                <span class="skill-tag">Quant Finance</span>
-            </div>
-        </div>
+    <h1>My Pages</h1>
+    <div class="link-container">
+        <a href="https://sduprey.github.io/Intro_sd.html" class="button-link" target="_blank">Introduction</a>
+        <a href="https://sduprey.github.io/experience_sd.html" class="button-link" target="_blank">Experience</a>
+        <a href="https://sduprey.github.io/skills_sd.html" class="button-link" target="_blank">Skills</a>
     </div>
-
-    <div class="absolute bottom-0 w-full h-2 bg-indigo-600"></div>
-</div>
-
-<!-- ================= PAGE 2 ================= -->
-<div class="slide-container">
-    <div class="bg-shape-1"></div>
-    <div class="bg-shape-2"></div>
-
-    <div class="content-wrapper flex-col">
-        <p class="text-indigo-400 font-bold uppercase text-sm mb-1">Expertise & Transmission</p>
-        <h1 class="text-4xl font-extrabold mb-6">Compétences Techniques & Contributions</h1>
-
-        <div class="grid grid-cols-2 gap-6">
-            <div class="glass-card">
-                <h3 class="text-xl font-bold mb-4"><i class="fas fa-code"></i> Stack Technique</h3>
-                <p>Python · R · Java · Solidity</p>
-            </div>
-
-            <div class="glass-card">
-                <h3 class="text-xl font-bold mb-4"><i class="fas fa-chalkboard-teacher"></i> Enseignement</h3>
-                <p>Aivancity · Dauphine · EPITA · Mines Nancy</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="absolute bottom-0 w-full h-2 bg-indigo-600"></div>
-</div>
-
 </body>
 </html>
