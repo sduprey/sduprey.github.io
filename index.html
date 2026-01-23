@@ -1,188 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Stefan Duprey</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .link-container, .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 250px;
+        }
+
+        a.button-link {
+            text-decoration: none;
+            background-color: #007acc;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        a.button-link:hover {
+            background-color: #005f99;
+            transform: translateY(-2px);
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #007acc;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #005f99;
+        }
+
+        /* Optional: add some spacing between sections */
+        .social-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
 <body>
+    <h1>Curriculum Vitae - Stefan Duprey</h1>
 
-<h1>Curriculum Vitae Stefan Duprey</h1>
-<div class="link-container">
-    <a href="https://sduprey.github.io/Intro_sd.html" class="button-link" target="_blank">Introduction</a>
-    <a href="https://sduprey.github.io/experience_sd.html" class="button-link" target="_blank">Experience</a>
-    <a href="https://sduprey.github.io/skills_sd.html" class="button-link" target="_blank">Skills</a>
-</div>
-<p>
-<a href="https://www.linkedin.com/in/stefan-duprey-40076b28/">linked In</a>
-</p>
-<p>
-<a href="https://github.com/sduprey">Github</a>
-</p>
-<p>
-<a href="https://fr.slideshare.net/StefanDuprey">Slideshare</a>
-</p>
-<p>
-<a href="https://www.kaggle.com/elmacho">Kaggle</a>
-</p>
-<p>
-<a href="https://exchange.art/sduprey/nfts">Stable diffusion AI creation</a>
-</p>
-<p>
-<a href="https://twitter.com/stefanduprey">twitter</a>
-</p>
+    <div class="link-container">
+        <a href="https://sduprey.github.io/Intro_sd.html" class="button-link" target="_blank">Introduction</a>
+        <a href="https://sduprey.github.io/experience_sd.html" class="button-link" target="_blank">Experience</a>
+        <a href="https://sduprey.github.io/skills_sd.html" class="button-link" target="_blank">Skills</a>
+    </div>
 
-
-<BR>
-📘 Derivatives
-<BR>
-→ Forwards and Futures
-<BR>
-→ Options (Call & Put)
-<BR>
-→ Call & Put Options Payoffs
-<BR>
-→ European vs American Options
-<BR>
-→ Put-Call Parity
-<BR>
-→ Option Greeks (Delta, Gamma, Vega, Theta, Rho)
-<BR>
-→ Black-Scholes Model
-<BR>
-→ Binomial/Trinomial Trees
-<BR>
-→ Monte Carlo Pricing
-<BR>
-→ Volatility Smile & Surface
-<BR>
-→ Exotic Options: Barrier, Asian, Lookback, Binary
-<BR>
-→ Swaps: Interest Rate & Equity Swaps
-<BR>
-→ Implied Volatility
-<BR>
-→ Hedging Strategies & Real-world Use Cases
-<BR>
-💵 Fixed Income
-<BR>
-→ Bond Pricing, YTM, Spot/Forward Rates
-<BR>
-→ Duration, Modified Duration, Convexity
-<BR>
-→ Bootstrapping Yield Curve
-<BR>
-→ Term Structure Models (Nelson-Siegel, Svensson)
-<BR>
-→ Interpolation (Linear, Cubic Spline, Monotone Convex)
-<BR>
-→ Interest Rate Derivatives (Caps, Floors, Swaptions)
-<BR>
-→ Z-Spread, Option-Adjusted Spread (OAS)
-<BR>
-→ Key Rate Duration
-<BR>
-→ Interest Rate Models: Vasicek, CIR, Hull-White, BGM
-<BR>
-📉 Market Risk
-<BR>
-→ Value at Risk (VaR): Historical, Parametric, Monte Carlo
-<BR>
-→ Expected Shortfall (CVaR)
-<BR>
-→ Volatility Modeling: EWMA, GARCH
-<BR>
-→ Risk Sensitivities: Greeks, DV01, PV01
-<BR>
-→ Full Revaluation vs Delta-Normal VaR
-<BR>
-→ Stress Testing & Scenario Analysis
-<BR>
-→ Marginal & Incremental VaR
-<BR>
-→ P&L Attribution
-<BR>
-→ Backtesting VaR
-<BR>
-→ Capital Models (Basel, FRTB)
-<BR>
-→ Liquidity Risk and Market Data Mapping
-<BR>
-→ Sensitivity Analysis (IR, FX, Credit, Equity)
-<BR>
-🔢 Stochastic Calculus
-<BR>
-→ Brownian Motion
-<BR>
-→ Ito’s Lemma
-<BR>
-→ Geometric Brownian Motion
-<BR>
-→ Stochastic Differential Equations (SDEs)
-<BR>
-→ Martingales
-<BR>
-→ Risk-Neutral Valuation & Girsanov’s Theorem
-<BR>
-→ Black-Scholes Derivation from SDE
-<BR>
-→ Jump Diffusion Models (Merton)
-<BR>
-→ Heston Model
-<BR>
-→ SABR Model
-<BR>
-→ Numerical Methods: Euler, Milstein
-<BR>
-→ Feynman-Kac Theorem
-<BR>
-→ Applications to Derivatives & Interest Rate Modeling
-<BR>
-⏱️ Time Series Analysis
-<BR>
-→ Stationarity and Unit Root Tests
-<BR>→ Autocorrelation, Partial Autocorrelation (ACF, PACF)
-→ AR, MA, ARMA, ARIMA, SARIMA
-<BR>
-→ ARCH, GARCH, EGARCH, TGARCH
-<BR>
-→ Volatility Clustering
-<BR>
-→ Rolling Mean & Rolling Volatility
-<BR>
-→ Seasonality & Trend Detection
-<BR>
-→ Forecast Accuracy: MAPE, RMSE
-<BR>
-→ Cointegration and Error Correction Models
-<BR>
-→ Kalman Filter
-<BR>
-→ VAR Models
-<BR>
-→ Application: Forecasting asset returns, volatility, macro variables
-<BR>
-🤖 Machine Learning in Quant Finance
-<BR>
-→ Supervised vs Unsupervised Learning
-<BR>
-→ Feature Engineering for Financial Data
-<BR>
-→ Regression Models (Linear, Lasso, Ridge)
-<BR>
-→ Classification Models (Logistic, Decision Tree, SVM)
-<BR>
-→ Ensemble Methods (Random Forest, XGBoost)
-<BR>
-→ Time Series ML (Lag features, Rolling stats)
-<BR>
-→ Clustering: K-Means, DBSCAN
-<BR>
-→ Dimensionality Reduction: PCA, t-SNE
-<BR>
-→ Cross-Validation Techniques (K-Fold, TimeSeriesSplit)
-<BR>
-→ Model Evaluation: AUC-ROC, Precision, Recall, F1
-<BR>
-→ Overfitting/Underfitting, Regularization
-<BR>
-→ Use Cases: Credit Risk Modeling, Algo Trading, Fraud Detection, Price Prediction
-
-
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/stefan-duprey-40076b28/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sduprey" target="_blank">GitHub</a>
+        <a href="https://fr.slideshare.net/StefanDuprey" target="_blank">Slideshare</a>
+        <a href="https://www.kaggle.com/elmacho" target="_blank">Kaggle</a>
+        <a href="https://exchange.art/sduprey/nfts" target="_blank">Stable Diffusion AI Creations</a>
+        <a href="https://twitter.com/stefanduprey" target="_blank">Twitter</a>
+    </div>
 </body>
 </html>
