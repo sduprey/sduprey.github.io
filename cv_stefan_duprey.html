@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Links</title>
+    <title>Curriculum Vitae - Stefan Duprey</title>
     <style>
         /* Basic Reset */
         * {
@@ -18,20 +18,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             flex-direction: column;
+            padding: 20px;
         }
 
         h1 {
             margin-bottom: 40px;
             font-size: 2.5rem;
             color: #333;
+            text-align: center;
         }
 
-        .link-container {
+        .link-container, .social-links {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
+            width: 250px;
         }
 
         a.button-link {
@@ -40,7 +43,7 @@
             color: white;
             padding: 15px 25px;
             border-radius: 8px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-align: center;
             transition: background-color 0.3s, transform 0.2s;
         }
@@ -49,33 +52,41 @@
             background-color: #005f99;
             transform: translateY(-2px);
         }
+
+        .social-links a {
+            text-decoration: none;
+            color: #007acc;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #005f99;
+        }
+
+        /* Optional: add some spacing between sections */
+        .social-links {
+            margin-top: 30px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <h1>Curriculum Vitae Stefan Duprey</h1>
+    <h1>Curriculum Vitae - Stefan Duprey</h1>
+
     <div class="link-container">
         <a href="https://sduprey.github.io/Intro_sd.html" class="button-link" target="_blank">Introduction</a>
         <a href="https://sduprey.github.io/experience_sd.html" class="button-link" target="_blank">Experience</a>
         <a href="https://sduprey.github.io/skills_sd.html" class="button-link" target="_blank">Skills</a>
     </div>
-    <p>
-<a href="https://www.linkedin.com/in/stefan-duprey-40076b28/">linked In</a>
-</p>
-<p>
-<a href="https://github.com/sduprey">Github</a>
-</p>
-<p>
-<a href="https://fr.slideshare.net/StefanDuprey">Slideshare</a>
-</p>
-<p>
-<a href="https://www.kaggle.com/elmacho">Kaggle</a>
-</p>
-<p>
-<a href="https://exchange.art/sduprey/nfts">Stable diffusion AI creation</a>
-</p>
-<p>
-<a href="https://twitter.com/stefanduprey">twitter</a>
-</p>
 
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/stefan-duprey-40076b28/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sduprey" target="_blank">GitHub</a>
+        <a href="https://fr.slideshare.net/StefanDuprey" target="_blank">Slideshare</a>
+        <a href="https://www.kaggle.com/elmacho" target="_blank">Kaggle</a>
+        <a href="https://exchange.art/sduprey/nfts" target="_blank">Stable Diffusion AI Creations</a>
+        <a href="https://twitter.com/stefanduprey" target="_blank">Twitter</a>
+    </div>
 </body>
 </html>
