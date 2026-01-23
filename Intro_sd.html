@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Profil Stefan Duprey</title>
+<title>Stefan Duprey Profile</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
@@ -26,21 +26,21 @@
             width: 1280px;
             height: 720px;
             position: relative;
-            background-color: #0f172a; /* Slate 900 */
+            background-color: #0f172a;
             color: #ffffff;
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
 
-        /* Decorative Background Elements (No CSS Gradients) */
+        /* Decorative Background Elements */
         .bg-shape-1 {
             position: absolute;
             top: -100px;
             right: -100px;
             width: 600px;
             height: 600px;
-            background-color: #4338ca; /* Indigo 700 */
+            background-color: #4338ca;
             border-radius: 50%;
             opacity: 0.2;
             z-index: 0;
@@ -52,7 +52,7 @@
             left: -50px;
             width: 400px;
             height: 400px;
-            background-color: #be185d; /* Pink 700 */
+            background-color: #be185d;
             border-radius: 50%;
             opacity: 0.15;
             z-index: 0;
@@ -64,7 +64,7 @@
             left: 30%;
             width: 200px;
             height: 200px;
-            background-color: #2563eb; /* Blue 600 */
+            background-color: #2563eb;
             border-radius: 50%;
             opacity: 0.1;
             filter: blur(40px);
@@ -72,7 +72,7 @@
         }
 
         .glass-card {
-            background-color: rgba(30, 41, 59, 0.7); /* Slate 800 with opacity */
+            background-color: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
@@ -147,102 +147,109 @@
             flex-shrink: 0;
             border: 1px solid rgba(99, 102, 241, 0.3);
         }
-
-    </style>
+</style>
 </head>
 <body>
 <div class="slide-container">
-<!-- Background Decor -->
-<div class="bg-shape-1"></div>
-<div class="bg-shape-2"></div>
-<div class="bg-shape-3"></div>
-<div class="content-wrapper">
-<!-- Left Panel: Identity -->
-<div class="left-panel">
-<div class="mb-8">
-<!-- Placeholder for profile image since none provided, using FontAwesome -->
-<div class="profile-img-placeholder mb-6">
-<i class="fas fa-user-tie fa-5x text-gray-400"></i>
-</div>
-</div>
-<div class="mb-2">
-<p class="text-indigo-400 font-bold tracking-wider uppercase text-sm mb-2">Profil Professionnel</p>
-<h1 class="text-5xl font-extrabold text-white leading-tight mb-4">
-                        Stefan<br/>Duprey
-                    </h1>
-</div>
-<div class="glass-card p-4 mb-6 inline-block">
-<h2 class="text-xl font-bold text-transparent bg-clip-text text-white">
-                        Expert Data Science, AI &amp; Blockchain
-                    </h2>
-</div>
-<div class="flex flex-wrap">
-<div class="flex space-x-4 mt-2">
-<a class="text-gray-400 hover:text-white transition" href="#"><i class="fab fa-linkedin fa-2x"></i></a>
-<a class="text-gray-400 hover:text-white transition" href="#"><i class="fab fa-github fa-2x"></i></a>
-<a class="text-gray-400 hover:text-white transition" href="#"><i class="fab fa-slideshare fa-2x"></i></a>
-</div>
-</div>
-</div>
-<!-- Right Panel: Details -->
-<div class="right-panel">
-<!-- Summary Section -->
-<div class="mb-10">
-<h3 class="text-2xl font-bold mb-6 border-l-4 border-indigo-500 pl-4">Résumé &amp; Expertise</h3>
-<p class="text-gray-300 text-lg leading-relaxed mb-6">
-                        Expert transverse avec plus de 20 ans d'expérience combinant mathématiques appliquées, Data Science et ingénierie logicielle pour créer de la valeur métier en finance et assurance.
-                    </p>
-<div class="flex flex-wrap mb-4">
-<span class="skill-tag">Machine Learning</span>
-<span class="skill-tag">Data Mining</span>
-<span class="skill-tag">Artificial Intelligence</span>
-<span class="skill-tag">Blockchain / DeFi</span>
-<span class="skill-tag">Quant Finance</span>
-</div>
-</div>
-<!-- Info Grid -->
-<div class="grid grid-cols-1 gap-4">
-<!-- Expérience -->
-<div class="info-item">
-<div class="info-icon">
-<i class="fas fa-briefcase"></i>
-</div>
-<div>
-<p class="text-sm text-gray-400 uppercase font-semibold">Expérience</p>
-<p class="text-xl font-bold text-white">20+ Années</p>
-<p class="text-sm text-gray-300 mt-1">Lead Data Scientist, Data Engineer, DevOps &amp; DataOps</p>
-</div>
-</div>
-<!-- Formation -->
-<div class="info-item">
-<div class="info-icon">
-<i class="fas fa-graduation-cap"></i>
-</div>
-<div>
-<p class="text-sm text-gray-400 uppercase font-semibold">Formation</p>
-<p class="text-lg font-bold text-white">PhD Mathématiques Appliquées &amp; Physique</p>
-<p class="text-sm text-gray-300 mt-1">EADS / Université Henri Poincaré • Ingénieur Mines de Nancy</p>
-</div>
-</div>
-<!-- Langues -->
-<div class="info-item">
-<div class="info-icon">
-<i class="fas fa-language"></i>
-</div>
-<div>
-<p class="text-sm text-gray-400 uppercase font-semibold">Langues</p>
-<div class="flex items-center space-x-4 mt-1">
-<span class="flex items-center text-white"><i class="fas fa-circle text-xs text-green-400 mr-2"></i>Français (Natif)</span>
-<span class="flex items-center text-white"><i class="fas fa-circle text-xs text-blue-400 mr-2"></i>Anglais (Courant)</span>
-<span class="flex items-center text-white"><i class="fas fa-circle text-xs text-yellow-400 mr-2"></i>Allemand (Pro)</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Bottom Decoration -->
-<div class="absolute bottom-0 w-full h-2 bg-indigo-600"></div>
+  <!-- Background Decor -->
+  <div class="bg-shape-1"></div>
+  <div class="bg-shape-2"></div>
+  <div class="bg-shape-3"></div>
+
+  <div class="content-wrapper">
+    <!-- Left Panel: Identity -->
+    <div class="left-panel">
+      <div class="mb-8">
+        <div class="profile-img-placeholder mb-6">
+          <i class="fas fa-user-tie fa-5x text-gray-400"></i>
+        </div>
+      </div>
+      <div class="mb-2">
+        <p class="text-indigo-400 font-bold tracking-wider uppercase text-sm mb-2">Professional Profile</p>
+        <h1 class="text-5xl font-extrabold text-white leading-tight mb-4">
+          Stefan<br/>Duprey
+        </h1>
+      </div>
+      <div class="glass-card p-4 mb-6 inline-block">
+        <h2 class="text-xl font-bold text-transparent bg-clip-text text-white">
+          Expert in Data Science, AI & Blockchain
+        </h2>
+      </div>
+      <div class="flex flex-wrap">
+        <div class="flex space-x-4 mt-2">
+          <a class="text-gray-400 hover:text-white transition" href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+          <a class="text-gray-400 hover:text-white transition" href="#"><i class="fab fa-github fa-2x"></i></a>
+          <a class="text-gray-400 hover:text-white transition" href="#"><i class="fab fa-slideshare fa-2x"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Details -->
+    <div class="right-panel">
+      <!-- Summary Section -->
+      <div class="mb-10">
+        <h3 class="text-2xl font-bold mb-6 border-l-4 border-indigo-500 pl-4">Summary & Expertise</h3>
+        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+          20 years in data science and mathematical modeling to provide business value out of data through machine learning and data science<br/>
+          Solid business expertise in market finance, asset management and insurance business.<br/>
+          Managing projects scoping and execution, reporting <br/>
+        </p>
+        <div class="flex flex-wrap mb-4">
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">Artificial Intelligence</span>
+          <span class="skill-tag">Data Science</span>
+          <span class="skill-tag">Blockchain </span>
+        </div>
+      </div>
+
+      <!-- Info Grid -->
+      <div class="grid grid-cols-1 gap-4">
+        <!-- Experience -->
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <div>
+            <p class="text-sm text-gray-400 uppercase font-semibold">Experience</p>
+            <p class="text-xl font-bold text-white">20+ Years</p>
+            <p class="text-sm text-gray-300 mt-1">Quant researcher, Data Scientist, Data Engineer, DevOps & DataOps</p>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div>
+            <p class="text-sm text-gray-400 uppercase font-semibold">Education</p>
+            <p class="text-lg font-bold text-white">PhD in Applied Mathematics & Physics</p>
+            <p class="text-sm text-gray-300 mt-1">EADS / Henri Poincaré University • Engineer from Mines de Nancy</p>
+              <p class="text-sm text-gray-300 mt-1">Master in market finance• CNAM</p>
+
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-language"></i>
+          </div>
+          <div>
+            <p class="text-sm text-gray-400 uppercase font-semibold">Languages</p>
+            <div class="flex items-center space-x-4 mt-1">
+              <span class="flex items-center text-white"><i class="fas fa-circle text-xs text-green-400 mr-2"></i>French (Native)</span>
+              <span class="flex items-center text-white"><i class="fas fa-circle text-xs text-blue-400 mr-2"></i>English (Fluent)</span>
+              <span class="flex items-center text-white"><i class="fas fa-circle text-xs text-yellow-400 mr-2"></i>German (Professional)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Decoration -->
+  <div class="absolute bottom-0 w-full h-2 bg-indigo-600"></div>
 </div>
 </body>
 </html>
