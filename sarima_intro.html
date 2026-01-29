@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SARIMA vs Prophet : Guide de Sélection</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&amp;family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            display: flex;
+            position: relative;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .left-panel {
+            width: 55%;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ffffff;
+            z-index: 10;
+        }
+        .right-panel {
+            width: 45%;
+            background-color: #f8fafc;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .accent-bar {
+            width: 80px;
+            height: 6px;
+            background-color: #ff6b35;
+            margin-bottom: 24px;
+        }
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #1a365d;
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #ff6b35;
+            font-size: 32px;
+            margin-bottom: 32px;
+        }
+        .description {
+            font-size: 20px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 48px;
+            border-left: 4px solid #e2e8f0;
+            padding-left: 20px;
+        }
+        .meta-info {
+            display: flex;
+            gap: 40px;
+            margin-top: auto;
+        }
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a0aec0;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .meta-value {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        /* Geometric decoration */
+        .circle-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background-color: rgba(26, 54, 93, 0.03);
+            right: -100px;
+            top: -100px;
+            z-index: 0;
+        }
+        .chart-container {
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Left Content -->
+<div class="left-panel">
+<div class="accent-bar"></div>
+<h1>SARIMA vs Prophet</h1>
+<h2>Guide de Sélection</h2>
+<div class="description">
+<p>Une approche comparative pour optimiser vos prévisions de séries temporelles : quand privilégier la rigueur statistique de SARIMA ou la flexibilité moderne de Prophet.</p>
+</div>
+<div class="meta-info">
+<div class="meta-item">
+<span class="meta-label">Public Cible</span>
+<span class="meta-value">Data Scientists &amp; Analystes</span>
+</div>
+<div class="meta-item">
+<span class="meta-label">Objectif</span>
+<span class="meta-value">Aide à la Décision Stratégique</span>
+</div>
+</div>
+</div>
+<!-- Right Visual -->
+<div class="right-panel">
+<div class="circle-bg"></div>
+<div class="chart-container" id="mainChart"></div>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var chartDom = document.getElementById('mainChart');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            // Generate some dummy data representing two different forecasting styles
+            let xData = [];
+            let dataSarima = [];
+            let dataProphet = [];
+            
+            for (let i = 0; i <= 50; i++) {
+                xData.push(i);
+                // SARIMA-like: regular seasonality
+                let seasonal = Math.sin(i / 2) * 20;
+                let trend = i * 1.5;
+                dataSarima.push((seasonal + trend + 50).toFixed(1));
+
+                // Prophet-like: trend break and flexibility
+                let trendP = i < 30 ? i * 1.5 : 45 + (i-30) * 3; 
+                let seasonalP = Math.sin(i / 2) * 20;
+                // Add some randomness/noise to make it look like raw data points sometimes
+                dataProphet.push((seasonalP + trendP + 50 + (i > 30 ? 10 : 0)).toFixed(1));
+            }
+
+            option = {
+                animation: false,
+                grid: {
+                    top: '20%',
+                    right: '10%',
+                    bottom: '20%',
+                    left: '10%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: xData,
+                    show: false,
+                    boundaryGap: false
+                },
+                yAxis: {
+                    type: 'value',
+                    show: false,
+                    scale: true
+                },
+                color: ['#1a365d', '#ff6b35'],
+                series: [
+                    {
+                        name: 'SARIMA (Structure)',
+                        type: 'line',
+                        smooth: true,
+                        lineStyle: {
+                            width: 3,
+                            type: 'dashed'
+                        },
+                        symbol: 'none',
+                        data: dataSarima,
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: 'rgba(26, 54, 93, 0.2)' },
+                                { offset: 1, color: 'rgba(26, 54, 93, 0)' }
+                            ])
+                        }
+                    },
+                    {
+                        name: 'Prophet (Flexibilité)',
+                        type: 'line',
+                        smooth: 0.3,
+                        lineStyle: {
+                            width: 4
+                        },
+                        symbol: 'none',
+                        data: dataProphet,
+                         areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: 'rgba(255, 107, 53, 0.2)' },
+                                { offset: 1, color: 'rgba(255, 107, 53, 0)' }
+                            ])
+                        }
+                    }
+                ]
+            };
+
+            myChart.setOption(option);
+        });
+    </script>
+</body>
+</html>

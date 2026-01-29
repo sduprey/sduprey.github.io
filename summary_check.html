@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guide de décision rapide</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .header {
+            padding: 40px 60px 20px 60px;
+            background-color: #fff;
+            z-index: 10;
+        }
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 42px;
+            color: #1a365d;
+            margin: 0;
+        }
+        .header-accent {
+            width: 60px;
+            height: 6px;
+            background-color: #ff6b35;
+            margin-top: 10px;
+            border-radius: 3px;
+        }
+        .content-area {
+            flex: 1;
+            padding: 20px 60px 40px 60px;
+            background-color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        /* Table Styles */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+            margin-top: 10px;
+        }
+        
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            padding: 0 30px;
+            margin-bottom: 10px;
+        }
+        
+        .th-item {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: #718096;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            background: white;
+            border-radius: 12px;
+            padding: 20px 30px;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 6px solid transparent;
+        }
+        
+        .table-row:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+        
+        .row-sarima {
+            border-left-color: #1a365d;
+        }
+        
+        .row-prophet {
+            border-left-color: #ff6b35;
+        }
+        
+        .situation-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .situation-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .situation-text {
+            font-size: 18px;
+            color: #2d3748;
+            font-weight: 500;
+        }
+        
+        .choice-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            width: 140px;
+            text-align: center;
+        }
+        
+        .badge-sarima {
+            background-color: #1a365d;
+            color: white;
+            box-shadow: 0 4px 6px rgba(26, 54, 93, 0.2);
+        }
+        
+        .badge-prophet {
+            background-color: #ff6b35;
+            color: white;
+            box-shadow: 0 4px 6px rgba(255, 107, 53, 0.2);
+        }
+
+        .check-icon {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        /* Bottom Note */
+        .bottom-note {
+            background-color: #ebf8ff;
+            border: 1px solid #bee3f8;
+            border-radius: 8px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            color: #2c5282;
+        }
+        
+        .note-icon {
+            color: #3182ce;
+            font-size: 20px;
+        }
+        
+        .note-text {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        /* Grid Layout for rows */
+        .rows-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="header">
+<h1>Guide de décision rapide</h1>
+<div class="header-accent"></div>
+</div>
+<div class="content-area">
+<!-- Headers -->
+<div class="table-header">
+<div class="th-item">Situation / Contexte</div>
+<div class="th-item" style="padding-left: 20px;">Modèle Recommandé</div>
+</div>
+<!-- Rows Container -->
+<div class="rows-container">
+<!-- Row 1 -->
+<div class="table-row row-sarima">
+<div class="situation-content">
+<div class="situation-icon"><i class="fas fa-wave-square"></i></div>
+<div class="situation-text"><p>Saisonnalité stable + forte autocorrélation</p></div>
+</div>
+<div style="padding-left: 20px;">
+<span class="choice-badge badge-sarima"><i class="fas fa-check check-icon"></i>SARIMA</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="table-row row-sarima">
+<div class="situation-content">
+<div class="situation-icon"><i class="fas fa-stopwatch"></i></div>
+<div class="situation-text"><p>Prévisions court terme (Haute précision)</p></div>
+</div>
+<div style="padding-left: 20px;">
+<span class="choice-badge badge-sarima"><i class="fas fa-check check-icon"></i>SARIMA</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="table-row row-sarima">
+<div class="situation-content">
+<div class="situation-icon"><i class="fas fa-database"></i></div>
+<div class="situation-text"><p>Petit jeu de données (50–200 observations)</p></div>
+</div>
+<div style="padding-left: 20px;">
+<span class="choice-badge badge-sarima"><i class="fas fa-check check-icon"></i>SARIMA</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="table-row row-prophet">
+<div class="situation-content">
+<div class="situation-icon"><i class="fas fa-chart-line"></i></div>
+<div class="situation-text"><p>Ruptures de tendance fréquentes</p></div>
+</div>
+<div style="padding-left: 20px;">
+<span class="choice-badge badge-prophet"><i class="fas fa-check check-icon"></i>Prophet</span>
+</div>
+</div>
+<!-- Row 5 -->
+<div class="table-row row-prophet">
+<div class="situation-content">
+<div class="situation-icon"><i class="fas fa-calendar-alt"></i></div>
+<div class="situation-text"><p>Multiples saisonnalités (hebdo + annuel)</p></div>
+</div>
+<div style="padding-left: 20px;">
+<span class="choice-badge badge-prophet"><i class="fas fa-check check-icon"></i>Prophet</span>
+</div>
+</div>
+<!-- Row 6 -->
+<div class="table-row row-prophet">
+<div class="situation-content">
+<div class="situation-icon"><i class="fas fa-exclamation-triangle"></i></div>
+<div class="situation-text"><p>Données « Messy » (manquants, outliers)</p></div>
+</div>
+<div style="padding-left: 20px;">
+<span class="choice-badge badge-prophet"><i class="fas fa-check check-icon"></i>Prophet</span>
+</div>
+</div>
+</div>
+<!-- Footer Note -->
+<div class="bottom-note">
+<i class="fas fa-lightbulb note-icon"></i>
+<p class="note-text"><strong>Conseil pro :</strong> Utilisez SARIMA comme <em>baseline</em> robuste, puis comparez avec Prophet si la flexibilité est requise.</p>
+</div>
+</div>
+</div>
+</body>
+</html>

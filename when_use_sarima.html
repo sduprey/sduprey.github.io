@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quand utiliser SARIMA</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .header {
+            padding: 40px 60px 20px 60px;
+            border-bottom: 2px solid #e2e8f0;
+            background-color: #fff;
+            z-index: 10;
+        }
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 42px;
+            color: #1a365d;
+            margin: 0;
+        }
+        .header-accent {
+            width: 60px;
+            height: 6px;
+            background-color: #ff6b35;
+            margin-top: 10px;
+            border-radius: 3px;
+        }
+        .content-area {
+            flex: 1;
+            display: flex;
+            padding: 30px 60px;
+            gap: 40px;
+            background-color: #f8fafc;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-left: 5px solid #1a365d;
+            transition: transform 0.2s;
+            display: flex;
+            gap: 15px;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(26, 54, 93, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #1a365d;
+            font-size: 18px;
+        }
+        .card.accent-card {
+            border-left-color: #ff6b35;
+        }
+        .card.accent-card .card-icon {
+            background-color: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+        }
+        .card-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #2d3748;
+            margin: 0 0 8px 0;
+        }
+        .card-content p {
+            font-size: 14px;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .card-content ul {
+            margin: 5px 0 0 0;
+            padding-left: 15px;
+            font-size: 13px;
+            color: #718096;
+        }
+        .card-content li {
+            margin-bottom: 2px;
+        }
+        /* Visual element on the right/bottom */
+        .visual-summary {
+            background: linear-gradient(135deg, #1a365d 0%, #2a4365 100%);
+            border-radius: 12px;
+            padding: 25px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex: 0.8; /* Make it smaller than a full card */
+        }
+        .visual-summary h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            z-index: 2;
+        }
+        .visual-summary p {
+            font-size: 14px;
+            opacity: 0.9;
+            z-index: 2;
+            line-height: 1.6;
+        }
+        .chart-decoration {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            opacity: 0.1;
+            font-size: 120px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="header">
+<h1>Quand utiliser SARIMA : 7 conditions clés</h1>
+<div class="header-accent"></div>
+</div>
+<div class="content-area">
+<!-- Left Column -->
+<div class="column">
+<!-- Item 1 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-chart-line"></i></div>
+<div class="card-content">
+<h3>1. Série stationnaire</h3>
+<p>La série doit être stable ou stabilisable.</p>
+<ul>
+<li>Saisonnalité stable dans le temps</li>
+<li>Tendance supprimable par différenciation</li>
+<li>Variance approximativement constante</li>
+</ul>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="card accent-card">
+<div class="card-icon"><i class="fas fa-wave-square"></i></div>
+<div class="card-content">
+<h3>2. Forte autocorrélation</h3>
+<p>Les valeurs passées prédisent fortement le futur.</p>
+<ul>
+<li>Structure claire sur les plots ACF/PACF</li>
+<li>Relations nettes (AutoRegressive / Moving Average)</li>
+</ul>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-stopwatch"></i></div>
+<div class="card-content">
+<h3>3. Prévisions court terme</h3>
+<p>Idéal pour la haute précision immédiate.</p>
+<ul>
+<li>Horizons de prévision courts</li>
+<li>Données haute fréquence (horaire, journalier)</li>
+<li>Besoins opérationnels critiques</li>
+</ul>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-database"></i></div>
+<div class="card-content">
+<h3>4. Historique limité</h3>
+<p>Performant même avec peu de données.</p>
+<ul>
+<li>Efficace dès 50–200 observations</li>
+<li>Besoin minimal : 1 cycle saisonnier complet (ex: 2-3 ans)</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="column">
+<!-- Item 5 -->
+<div class="card">
+<div class="card-icon"><i class="far fa-calendar-check"></i></div>
+<div class="card-content">
+<h3>5. Saisonnalité régulière</h3>
+<p>Hypothèse de cycles rigides.</p>
+<ul>
+<li>Période constante (ex: exactement 12 mois)</li>
+<li>Pas de changement de force saisonnière</li>
+</ul>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="card accent-card">
+<div class="card-icon"><i class="fas fa-calculator"></i></div>
+<div class="card-content">
+<h3>6. Inférence statistique</h3>
+<p>Cadre mathématique rigoureux requis.</p>
+<ul>
+<li>Estimation précise des paramètres &amp; intervalles</li>
+<li>Tests diagnostiques (Ljung–Box, normalité)</li>
+</ul>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-sliders-h"></i></div>
+<div class="card-content">
+<h3>7. Contrôle &amp; Diagnostics</h3>
+<p>Pour les environnements régulés ou de recherche.</p>
+<ul>
+<li>Validation manuelle des hypothèses</li>
+<li>Analyse fine des résidus</li>
+</ul>
+</div>
+</div>
+<!-- Visual Summary Box to balance layout -->
+<div class="visual-summary">
+<i class="fas fa-chart-area chart-decoration"></i>
+<h3>Résumé Visuel</h3>
+<p>
+                        SARIMA excelle lorsque la structure des données est <strong>prévisible, stable et mécaniste</strong>. C'est l'outil de choix pour la précision mathématique sur des séries "propres".
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

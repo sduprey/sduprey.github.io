@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Approche hybride et recommandations pratiques</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .header {
+            padding: 40px 60px 20px 60px;
+            background-color: #fff;
+            z-index: 10;
+        }
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 42px;
+            color: #1a365d;
+            margin: 0;
+        }
+        .header-accent {
+            width: 60px;
+            height: 6px;
+            background-color: #ff6b35;
+            margin-top: 10px;
+            border-radius: 3px;
+        }
+        .content-area {
+            flex: 1;
+            padding: 20px 60px 50px 60px;
+            background-color: #f8fafc;
+            display: flex;
+            gap: 40px;
+        }
+        
+        /* Column Styles */
+        .column-box {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            border-top: 6px solid #1a365d;
+        }
+        
+        .column-right {
+            border-top-color: #ff6b35;
+        }
+
+        .box-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .box-icon {
+            font-size: 24px;
+            margin-right: 15px;
+            color: #1a365d;
+            background-color: #ebf8ff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .column-right .box-icon {
+            color: #c05621;
+            background-color: #feebc8;
+        }
+        
+        .box-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: #2d3748;
+            margin: 0;
+        }
+        
+        /* Step List Styles (Left Column) */
+        .process-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .process-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .process-number {
+            background-color: #1a365d;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+        
+        .process-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #2d3748;
+            margin: 0 0 4px 0;
+        }
+        
+        .process-content p {
+            font-size: 14px;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Checklist Styles (Right Column) */
+        .checklist {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .check-item {
+            background-color: #fffaf0;
+            border-left: 4px solid #ff6b35;
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .check-icon {
+            color: #ff6b35;
+            margin-right: 12px;
+            margin-top: 3px;
+            font-size: 16px;
+        }
+        
+        .check-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #2d3748;
+            margin: 0 0 4px 0;
+        }
+        
+        .check-content p {
+            font-size: 14px;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        /* Bottom highlight */
+        .highlight-box {
+            margin-top: auto;
+            background-color: #f7fafc;
+            border: 1px dashed #cbd5e0;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .highlight-text {
+            font-size: 13px;
+            color: #718096;
+            font-style: italic;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="header">
+<h1>Approche hybride &amp; Bonnes pratiques</h1>
+<div class="header-accent"></div>
+</div>
+<div class="content-area">
+<!-- Left Column: Hybrid Approach -->
+<div class="column-box">
+<div class="box-header">
+<div class="box-icon"><i class="fas fa-layer-group"></i></div>
+<h2 class="box-title">Stratégie Hybride</h2>
+</div>
+<div class="process-list">
+<div class="process-item">
+<div class="process-number">1</div>
+<div class="process-content">
+<h3>Établir une baseline SARIMA</h3>
+<p>Sélectionnez les paramètres (p,d,q,P,D,Q,s) via les critères AIC/BIC et analysez les autocorrélations résiduelles.</p>
+</div>
+</div>
+<div class="process-item">
+<div class="process-number">2</div>
+<div class="process-content">
+<h3>Entraîner Prophet en parallèle</h3>
+<p>Configurez les saisonnalités pertinentes, intégrez les jours fériés et les régresseurs externes.</p>
+</div>
+</div>
+<div class="process-item">
+<div class="process-number">3</div>
+<div class="process-content">
+<h3>Validation croisée rigoureuse</h3>
+<p>Comparez les modèles sur une fenêtre glissante (rolling window) avec des métriques claires (MAE, RMSE, MAPE).</p>
+</div>
+</div>
+<div class="process-item">
+<div class="process-number">4</div>
+<div class="process-content">
+<h3>Production &amp; Ensemble</h3>
+<p>Utilisez le meilleur modèle ou une moyenne pondérée (stacking) si les erreurs sont décorrélées.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Best Practices -->
+<div class="column-box column-right">
+<div class="box-header">
+<div class="box-icon"><i class="fas fa-clipboard-check"></i></div>
+<h2 class="box-title">Checklist Technique</h2>
+</div>
+<div class="checklist">
+<div class="check-item">
+<i class="fas fa-wrench check-icon"></i>
+<div class="check-content">
+<h3>Prétraitement &amp; Transformation</h3>
+<p>Différenciation pour la tendance, transformation Log ou Box-Cox pour stabiliser la variance.</p>
+</div>
+</div>
+<div class="check-item">
+<i class="fas fa-microscope check-icon"></i>
+<div class="check-content">
+<h3>Tests Diagnostiques</h3>
+<p>Vérifiez la stationnarité (ADF, KPSS) et la blancheur des résidus (Ljung–Box, Shapiro-Wilk).</p>
+</div>
+</div>
+<div class="check-item">
+<i class="fas fa-shield-alt check-icon"></i>
+<div class="check-content">
+<h3>Robustesse &amp; Contexte</h3>
+<p>Gérez les valeurs manquantes et outliers. Intégrez le calendrier métier (vacances, promos).</p>
+</div>
+</div>
+<div class="check-item">
+<i class="fas fa-history check-icon"></i>
+<div class="check-content">
+<h3>Traçabilité MLOps</h3>
+<p>Documentez les hypothèses, versionnez les modèles et monitorez la dérive (drift) en production.</p>
+</div>
+</div>
+</div>
+<div class="highlight-box">
+<p class="highlight-text"><i class="fas fa-info-circle" style="margin-right:5px;"></i> L'objectif n'est pas la complexité, mais la stabilité opérationnelle.</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

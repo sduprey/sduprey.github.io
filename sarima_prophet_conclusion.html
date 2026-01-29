@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusion - Points Clés</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    /* Base styles */
+    body { 
+        margin: 0; 
+        padding: 0; 
+        background-color: #f3f4f6; 
+        font-family: 'Roboto', sans-serif; 
+        overflow: hidden; 
+    }
+    .slide-container { 
+        width: 1280px; 
+        height: 720px; 
+        position: relative; 
+        background-color: #ffffff; 
+        display: flex; 
+        flex-direction: column; 
+        overflow: hidden; 
+    }
+    
+    /* Header */
+    .header { 
+        padding: 40px 60px 10px 60px; 
+        background-color: #fff; 
+        z-index: 10; 
+    }
+    .header h1 { 
+        font-family: 'Montserrat', sans-serif; 
+        font-weight: 800; 
+        font-size: 42px; 
+        color: #1a365d; 
+        margin: 0; 
+    }
+    .header-accent { 
+        width: 60px; 
+        height: 6px; 
+        background-color: #ff6b35; 
+        margin-top: 10px; 
+        border-radius: 3px; 
+    }
+
+    /* Main Content Area */
+    .content-area { 
+        flex: 1; 
+        padding: 30px 60px 50px 60px; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 30px; 
+        background-color: #f8fafc; 
+    }
+
+    /* Comparison Cards Container */
+    .cards-container { 
+        display: flex; 
+        gap: 40px; 
+        flex: 1; /* Takes up remaining space but leaves room for bottom box */
+    }
+
+    /* Individual Summary Card */
+    .summary-card {
+        flex: 1;
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        border-top: 8px solid transparent;
+        transition: transform 0.2s;
+    }
+
+    .summary-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-sarima { border-top-color: #1a365d; }
+    .card-prophet { border-top-color: #ff6b35; }
+
+    /* Card Header */
+    .card-header { 
+        display: flex; 
+        align-items: center; 
+        margin-bottom: 25px; 
+        border-bottom: 1px solid #f1f5f9;
+        padding-bottom: 15px;
+    }
+    .card-icon-wrapper {
+        width: 56px; 
+        height: 56px; 
+        border-radius: 12px;
+        display: flex; 
+        align-items: center; 
+        justify-content: center;
+        margin-right: 16px;
+        font-size: 24px;
+    }
+    .sarima-icon { background-color: #ebf8ff; color: #1a365d; }
+    .prophet-icon { background-color: #fff5f0; color: #c05621; }
+
+    .header-text { display: flex; flex-direction: column; }
+    .card-title { 
+        font-family: 'Montserrat', sans-serif; 
+        font-weight: 700; 
+        font-size: 24px; 
+        color: #2d3748; 
+        margin: 0; 
+    }
+    .card-subtitle { 
+        font-size: 13px; 
+        color: #718096; 
+        margin-top: 2px; 
+        font-weight: 600; 
+        text-transform: uppercase; 
+        letter-spacing: 0.5px; 
+    }
+
+    /* List Items */
+    .card-list { 
+        list-style: none; 
+        padding: 0; 
+        margin: 0; 
+        display: flex; 
+        flex-direction: column; 
+        gap: 16px; 
+    }
+    .list-item { display: flex; align-items: flex-start; }
+    .item-bullet { 
+        margin-top: 5px; 
+        margin-right: 12px; 
+        font-size: 14px; 
+        flex-shrink: 0;
+    }
+    .sarima-bullet { color: #3182ce; }
+    .prophet-bullet { color: #dd6b20; }
+    
+    .item-text { 
+        font-size: 16px; 
+        color: #4a5568; 
+        line-height: 1.5; 
+        font-weight: 400; 
+    }
+    .item-text strong { 
+        font-weight: 600; 
+        color: #2d3748; 
+    }
+
+    /* Final Recommendation Box */
+    .recommendation-box {
+        height: 140px;
+        background-color: #2d3748;
+        border-radius: 12px;
+        padding: 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+        box-shadow: 0 10px 20px -5px rgba(45, 55, 72, 0.3);
+    }
+    
+    .rec-content { 
+        z-index: 2; 
+        max-width: 70%; 
+    }
+    .rec-title { 
+        font-family: 'Montserrat', sans-serif; 
+        font-weight: 700; 
+        font-size: 20px; 
+        margin-bottom: 8px; 
+        color: #ff6b35; 
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .rec-text { 
+        font-size: 16px; 
+        line-height: 1.5; 
+        color: #e2e8f0; 
+    }
+    
+    /* Background Decoration Icon */
+    .rec-bg-icon {
+        font-size: 120px;
+        color: white;
+        opacity: 0.05;
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-15deg);
+        z-index: 1;
+    }
+
+    .action-badge {
+        background-color: #ff6b35;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 15px;
+        font-family: 'Montserrat', sans-serif;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        z-index: 2;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<h1>Conclusion &amp; Points clés</h1>
+<div class="header-accent"></div>
+</div>
+<!-- Content -->
+<div class="content-area">
+<!-- Comparison Cards -->
+<div class="cards-container">
+<!-- SARIMA Card -->
+<div class="summary-card card-sarima">
+<div class="card-header">
+<div class="card-icon-wrapper sarima-icon">
+<i class="fas fa-cogs"></i>
+</div>
+<div class="header-text">
+<h2 class="card-title">SARIMA</h2>
+<span class="card-subtitle">Précision &amp; Rigueur</span>
+</div>
+</div>
+<ul class="card-list">
+<li class="list-item">
+<i class="fas fa-check-circle item-bullet sarima-bullet"></i>
+<span class="item-text"><strong>Conditions Idéales :</strong> Saisonnalité stable, forte autocorrélation et variance constante.</span>
+</li>
+<li class="list-item">
+<i class="fas fa-check-circle item-bullet sarima-bullet"></i>
+<span class="item-text"><strong>Forces :</strong> Précision optimale à court terme et efficacité sur les petits jeux de données.</span>
+</li>
+<li class="list-item">
+<i class="fas fa-check-circle item-bullet sarima-bullet"></i>
+<span class="item-text"><strong>Usage :</strong> Recherche, environnements régulés nécessitant une inférence statistique.</span>
+</li>
+</ul>
+</div>
+<!-- Prophet Card -->
+<div class="summary-card card-prophet">
+<div class="card-header">
+<div class="card-icon-wrapper prophet-icon">
+<i class="fas fa-rocket"></i>
+</div>
+<div class="header-text">
+<h2 class="card-title">Prophet</h2>
+<span class="card-subtitle">Flexibilité &amp; Vitesse</span>
+</div>
+</div>
+<ul class="card-list">
+<li class="list-item">
+<i class="fas fa-check-circle item-bullet prophet-bullet"></i>
+<span class="item-text"><strong>Conditions Idéales :</strong> Ruptures de tendance fréquentes, multi-saisonnalités et données « messy ».</span>
+</li>
+<li class="list-item">
+<i class="fas fa-check-circle item-bullet prophet-bullet"></i>
+<span class="item-text"><strong>Forces :</strong> Déploiement rapide, gestion native des jours fériés et forte interprétabilité.</span>
+</li>
+<li class="list-item">
+<i class="fas fa-check-circle item-bullet prophet-bullet"></i>
+<span class="item-text"><strong>Usage :</strong> Prévisions business à grande échelle, itérations rapides sans expertise approfondie.</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Recommendation Footer -->
+<div class="recommendation-box">
+<i class="fas fa-balance-scale rec-bg-icon"></i>
+<div class="rec-content">
+<div class="rec-title"><i class="fas fa-lightbulb"></i> Le mot de la fin</div>
+<p class="rec-text">
+                    Il n'y a pas de vainqueur universel. Validez toujours vos choix par l'expérimentation contrôlée. La solution optimale est souvent une approche <strong>hybride</strong> combinant la précision de SARIMA et la robustesse de Prophet.
+                </p>
+</div>
+<div class="action-badge">
+<i class="fas fa-flask"></i>
+                Testez &amp; Itérez
+            </div>
+</div>
+</div>
+</div>
+</body>
+</html>

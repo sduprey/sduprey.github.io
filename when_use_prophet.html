@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quand utiliser Prophet : situations favorables</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .header {
+            padding: 40px 60px 20px 60px;
+            border-bottom: 2px solid #e2e8f0;
+            background-color: #fff;
+            z-index: 10;
+        }
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 42px;
+            color: #1a365d;
+            margin: 0;
+        }
+        .header-accent {
+            width: 60px;
+            height: 6px;
+            background-color: #ff6b35;
+            margin-top: 10px;
+            border-radius: 3px;
+        }
+        .content-area {
+            flex: 1;
+            display: flex;
+            padding: 30px 60px;
+            gap: 40px;
+            background-color: #f8fafc;
+        }
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 18px 20px; /* Slightly reduced padding to fit content */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-left: 5px solid #1a365d;
+            transition: transform 0.2s;
+            display: flex;
+            gap: 15px;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(26, 54, 93, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #1a365d;
+            font-size: 18px;
+        }
+        .card.accent-card {
+            border-left-color: #ff6b35;
+        }
+        .card.accent-card .card-icon {
+            background-color: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+        }
+        .card-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #2d3748;
+            margin: 0 0 6px 0;
+        }
+        .card-content p {
+            font-size: 14px;
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+        .card-content ul {
+            margin: 5px 0 0 0;
+            padding-left: 15px;
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.4;
+        }
+        .card-content li {
+            margin-bottom: 2px;
+        }
+        /* Visual element on the right/bottom */
+        .visual-summary {
+            background: linear-gradient(135deg, #ff6b35 0%, #e65100 100%); /* Orange gradient for Prophet */
+            border-radius: 12px;
+            padding: 25px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            flex: 0.8;
+        }
+        .visual-summary h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+            z-index: 2;
+        }
+        .visual-summary p {
+            font-size: 14px;
+            opacity: 0.95;
+            z-index: 2;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        .visual-summary strong {
+            font-weight: 700;
+        }
+        .chart-decoration {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            opacity: 0.15;
+            font-size: 120px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="header">
+<h1>Quand utiliser Prophet : situations favorables</h1>
+<div class="header-accent"></div>
+</div>
+<div class="content-area">
+<!-- Left Column -->
+<div class="column">
+<!-- Item 1 -->
+<div class="card accent-card">
+<div class="card-icon"><i class="fas fa-route"></i></div>
+<div class="card-content">
+<h3>1. Ruptures de tendance</h3>
+<p>Gère les changements structurels abrupts.</p>
+<ul>
+<li>Détection automatique des "changepoints"</li>
+<li>Adaptation aux évolutions non-linéaires</li>
+<li>Pas besoin de stationnariser la série</li>
+</ul>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-layer-group"></i></div>
+<div class="card-content">
+<h3>2. Multiples saisonnalités</h3>
+<p>Modélise les cycles complexes simultanés.</p>
+<ul>
+<li>Hebdomadaire + Annuelle en même temps</li>
+<li>Cycles journaliers (données infra-journalières)</li>
+</ul>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="card accent-card">
+<div class="card-icon"><i class="fas fa-filter"></i></div>
+<div class="card-content">
+<h3>3. Données irrégulières</h3>
+<p>Robuste aux données réelles ("messy data").</p>
+<ul>
+<li>Gère nativement les données manquantes</li>
+<li>Résistant aux valeurs aberrantes (outliers)</li>
+</ul>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-calendar-star"></i></div>
+<div class="card-content">
+<h3>4. Gestion des événements</h3>
+<p>Intègre facilement le calendrier métier.</p>
+<ul>
+<li>Impact des jours fériés (fêtes mobiles)</li>
+<li>Événements spéciaux (promotions, lancements)</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="column">
+<!-- Item 5 -->
+<div class="card accent-card">
+<div class="card-icon"><i class="fas fa-rocket"></i></div>
+<div class="card-content">
+<h3>5. Déploiement rapide</h3>
+<p>Idéal pour l'automatisation à grande échelle.</p>
+<ul>
+<li>Paramètres par défaut très performants</li>
+<li>Peu de réglages manuels (tuning) requis</li>
+<li>Exécution rapide sur des milliers de séries</li>
+</ul>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+<div class="card-content">
+<h3>6. Interprétabilité</h3>
+<p>Un modèle "Boîte Blanche" pour le métier.</p>
+<ul>
+<li>Composantes claires : Tendance + Saison + Fériés</li>
+<li>Facile à expliquer aux décideurs non-experts</li>
+</ul>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="card">
+<div class="card-icon"><i class="fas fa-history"></i></div>
+<div class="card-content">
+<h3>7. Historique flexible</h3>
+<p>S'adapte à la profondeur disponible.</p>
+<ul>
+<li>Exploite les longs historiques pour les changements</li>
+<li>Reste robuste sur des séries plus courtes</li>
+</ul>
+</div>
+</div>
+<!-- Visual Summary Box -->
+<div class="visual-summary">
+<i class="fas fa-project-diagram chart-decoration"></i>
+<h3>Résumé Visuel</h3>
+<p>
+                    Prophet privilégie la <strong>flexibilité et l'explicabilité</strong>. C'est l'outil idéal pour les données métier complexes avec saisonnalités multiples et ruptures, où l'interprétation prime sur la pureté statistique.
+                </p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
