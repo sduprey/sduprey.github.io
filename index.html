@@ -15,101 +15,137 @@
 
         body {
             background-color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            color: #333;
             min-height: 100vh;
-            flex-direction: column;
-            padding: 20px;
+            padding: 60px 20px;
+        }
+
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
         }
 
         h1 {
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            color: #333;
+            font-size: 2.4rem;
+            color: #1a1a1a;
             text-align: center;
+            margin-bottom: 8px;
         }
 
-        .link-container, .social-links {
+        .subtitle {
+            text-align: center;
+            color: #777;
+            font-size: 1.05rem;
+            margin-bottom: 50px;
+        }
+
+        section {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 28px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 18px;
+            border-bottom: 2px solid #eef1f4;
+            padding-bottom: 10px;
+        }
+
+        .social-links {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 250px;
-        }
-
-        a.button-link {
-            text-decoration: none;
-            background-color: #007acc;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            text-align: center;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        a.button-link:hover {
-            background-color: #005f99;
-            transform: translateY(-2px);
+            flex-wrap: wrap;
+            gap: 12px 24px;
         }
 
         .social-links a {
             text-decoration: none;
             color: #007acc;
             font-size: 1rem;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
 
         .social-links a:hover {
             color: #005f99;
+            text-decoration: underline;
         }
 
-        /* Optional: add some spacing between sections */
-        .social-links {
-            margin-top: 30px;
-            text-align: center;
+        ul {
+            list-style: none;
+        }
+
+        section ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        section ul li:last-child {
+            border-bottom: none;
+        }
+
+        section ul a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.2s;
+        }
+
+        section ul a:hover {
+            color: #007acc;
+        }
+
+        section ul a::before {
+            content: "→ ";
+            color: #007acc;
         }
     </style>
 </head>
 <body>
-    <h1>Curriculum Vitae - Stefan Duprey</h1>
+    <div class="page">
+        <h1>Stefan Duprey</h1>
+        <p class="subtitle">Curriculum Vitae</p>
 
-    <div class="link-container">
-        <a href="https://sduprey.github.io/Intro_sd.html" class="button-link" target="_blank">Training</a>
-        <a href="https://sduprey.github.io/experience_sd.html" class="button-link" target="_blank">Experiences</a>
-        <a href="https://sduprey.github.io/skills_sd.html" class="button-link" target="_blank">Skills</a>
-    </div>
+        <section>
+            <h2>Links</h2>
+            <div class="social-links">
+                <a href="https://sduprey.github.io/Intro_sd.html" target="_blank">Training</a>
+                <a href="https://sduprey.github.io/experience_sd.html" target="_blank">Experiences</a>
+                <a href="https://sduprey.github.io/skills_sd.html" target="_blank">Skills</a>
+                <a href="https://sduprey.github.io/Stefan_Duprey_CV_data_scientist.pdf" target="_blank">CV</a>
+                <a href="https://www.linkedin.com/in/stefan-duprey-40076b28/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/sduprey" target="_blank">GitHub</a>
+                <a href="https://fr.slideshare.net/StefanDuprey" target="_blank">Slideshare</a>
+                <a href="https://www.kaggle.com/elmacho" target="_blank">Top 1% Kaggle</a>
+                <a href="https://sduprey.github.io/quant_expertise.html" target="_blank">Quantitative Expertise</a>
+                <a href="https://sduprey.github.io/new_axi_finite_element.pdf" target="_blank">French academy note on a new finite axisymetric element</a>
+            </div>
+        </section>
 
-    <div class="social-links">
-        <a href="https://sduprey.github.io/Stefan_Duprey_CV_data_scientist.pdf" target="_blank">CV</a>
-        <a href="https://www.linkedin.com/in/stefan-duprey-40076b28/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/sduprey" target="_blank">GitHub</a>
-        <a href="https://fr.slideshare.net/StefanDuprey" target="_blank">Slideshare</a>
-        <a href="https://www.kaggle.com/elmacho" target="_blank">Top 1% Kaggle</a>
-        <a href="https://sduprey.github.io/quant_expertise.html" target="_blank">Quantitative Expertise</a>
-        <a href="https://sduprey.github.io/new_axi_finite_element.pdf" target="_blank">French academy note on a new finite axisymetric element</a>
-    </div>
-    <div class="courses">
-    <h2>My Courses realized in french engineering schools</h2>
-    <ul>
-        <li><a href="https://github.com/sduprey/numerical_optimization/" target="_blank">Numerical Optimization</a></li>
-        <li><a href="https://github.com/sduprey/master_proba_python" target="_blank">Probability</a></li>
-        <li><a href="https://github.com/sduprey/timeseries_ressources" target="_blank">Timeseries modeling</a></li>
-        <li><a href="https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/index.html" target="_blank">Python</a></li>
-        <li><a href="https://github.com/sduprey/blockchain_introductory_course" target="_blank">Blockchain</a></li>
-        <li><a href="https://github.com/sduprey/python_design_patterns" target="_blank">Design patterns</a></li>
-        <li><a href="https://github.com/sduprey/maths_miscellaneous" target="_blank">Martingales and convergence</a></li>
-        <li><a href="https://github.com/sduprey/langchain_courses" target="_blank">Langchain</a></li>
-        <li><a href="https://github.com/sduprey/math-matiques_pour_informatique" target="_blank">Discrete maths</a></li>
-        <li><a href="https://course.fast.ai/" target="_blank">Fast AI</a></li>
-    </ul>
-    </div>
-        <div class="courses">
-    <h2>A bit of mathematical art</h2>
-    <ul>
-        <li><a href="https://sduprey.github.io/ifs_attractor_proof_lili_flowers.html" target="_blank">Chaos attractor Lili flowers</a></li>
-        <li><a href="https://exchange.art/sduprey/nfts" target="_blank">Stable Diffusion AI Creations</a></li>
-    </ul>
+        <section>
+            <h2>My Courses realized in french engineering schools</h2>
+            <ul>
+                <li><a href="https://github.com/sduprey/numerical_optimization/" target="_blank">Numerical Optimization</a></li>
+                <li><a href="https://github.com/sduprey/master_proba_python" target="_blank">Probability</a></li>
+                <li><a href="https://github.com/sduprey/timeseries_ressources" target="_blank">Timeseries modeling</a></li>
+                <li><a href="https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/index.html" target="_blank">Python</a></li>
+                <li><a href="https://github.com/sduprey/blockchain_introductory_course" target="_blank">Blockchain</a></li>
+                <li><a href="https://github.com/sduprey/python_design_patterns" target="_blank">Design patterns</a></li>
+                <li><a href="https://github.com/sduprey/maths_miscellaneous" target="_blank">Martingales and convergence</a></li>
+                <li><a href="https://github.com/sduprey/langchain_courses" target="_blank">Langchain</a></li>
+                <li><a href="https://github.com/sduprey/math-matiques_pour_informatique" target="_blank">Discrete maths</a></li>
+                <li><a href="https://course.fast.ai/" target="_blank">Fast AI</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>A bit of mathematical art</h2>
+            <ul>
+                <li><a href="https://sduprey.github.io/ifs_attractor_proof_lili_flowers.html" target="_blank">Chaos attractor Lili flowers</a></li>
+                <li><a href="https://exchange.art/sduprey/nfts" target="_blank">Stable Diffusion AI Creations</a></li>
+            </ul>
+        </section>
     </div>
 </body>
 </html>
