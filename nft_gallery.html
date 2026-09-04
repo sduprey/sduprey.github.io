@@ -13,6 +13,10 @@ header{padding:64px 32px 28px;max-width:1400px;margin:0 auto}
 h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,7vw,88px);line-height:.98;margin:0 0 6px;letter-spacing:-.01em}
 h1 em{font-style:italic;color:var(--accent)}
 .sub{color:var(--mute);font-size:15px;max-width:62ch;line-height:1.6;margin:10px 0 0}
+.sub a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.sub a:hover{border-color:var(--accent)}
+.sub code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--ink);background:#221f16;border:1px solid var(--line);border-radius:3px;padding:1px 5px}
+.sub em{font-style:italic;color:var(--ink)}
 .stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
 .stat b{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;display:block;line-height:1}
 .stat span{color:var(--mute);font-size:13px}
@@ -36,7 +40,8 @@ footer{max-width:1400px;margin:0 auto;padding:0 32px 60px;color:var(--mute);font
 </style></head><body>
 <header>
 <h1>Painted <em>animals</em></h1>
-<p class="sub">Your generative series — elephants, monkeys and giraffes rendered in the hands of Basquiat, Haring, Miró, Banksy, Klee, Kandinsky, Pollock and more. Held across four Solana wallets, pulled live from chain.</p>
+<p class="sub">A generative series — elephants, monkeys and giraffes rendered in the hands of Basquiat, Haring, Miró, Banksy, Klee, Kandinsky, Pollock, Van Gogh and more. Held across four Solana wallets, pulled live from chain.</p>
+<p class="sub">Every piece was synthesised with <a class="mint" href="https://github.com/sduprey/sduprey.github.io/blob/master/NFT_generator.ipynb" target="_blank" rel="noopener">NFT_generator.ipynb</a>, a short Colab notebook running Stable Diffusion v1&#8209;4 (<code>CompVis/stable-diffusion-v1-4</code>) through Hugging&nbsp;Face <code>diffusers</code>. The pipeline is loaded in half&#8209;precision on a CUDA GPU and driven by a fixed <code>torch.Generator</code> seed (2048), so each run is reproducible. Prompts follow a simple recipe — <em>“&lt;animal&gt; in an astronaut suit &lt;artist&gt;”</em> — generated six at a time and tiled into contact&#8209;sheet grids; the strongest frames were then upscaled and minted on Solana.</p>
 <div class="stats">
 <div class="stat"><b id="showing">0</b><span>on view</span></div>
 <div class="stat"><b>8</b><span>non-animal set aside</span></div>
