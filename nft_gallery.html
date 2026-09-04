@@ -41,7 +41,7 @@ footer{max-width:1400px;margin:0 auto;padding:0 32px 60px;color:var(--mute);font
 <header>
 <h1>Painted <em>animals</em></h1>
 <p class="sub">A generative series — elephants, monkeys and giraffes rendered in the hands of Basquiat, Haring, Miró, Banksy, Klee, Kandinsky, Pollock, Van Gogh and more. Held across four Solana wallets, pulled live from chain.</p>
-<p class="sub">Every piece was synthesised with <a class="mint" href="https://github.com/sduprey/sduprey.github.io/blob/master/NFT_generator.ipynb" target="_blank" rel="noopener">NFT_generator.ipynb</a>, a short Colab notebook running Stable Diffusion v1&#8209;4 (<code>CompVis/stable-diffusion-v1-4</code>) through Hugging&nbsp;Face <code>diffusers</code>. The pipeline is loaded in half&#8209;precision on a CUDA GPU and driven by a fixed <code>torch.Generator</code> seed (2048), so each run is reproducible. Prompts follow a simple recipe — <em>“&lt;animal&gt; in an astronaut suit &lt;artist&gt;”</em> — generated six at a time and tiled into contact&#8209;sheet grids; the strongest frames were then upscaled and minted on Solana.</p>
+<p class="sub">Every piece was synthesised running Stable Diffusion v1&#8209;4 (<code>CompVis/stable-diffusion-v1-4</code>) through Hugging&nbsp;Face <code>diffusers</code>. The pipeline is loaded in half&#8209;precision on a CUDA GPU and driven by a fixed <code>torch.Generator</code> seed (2048), so each run is reproducible. The strongest frames were then upscaled and minted on Solana.</p>
 <div class="stats">
 <div class="stat"><b id="showing">0</b><span>on view</span></div>
 <div class="stat"><b>8</b><span>non-animal set aside</span></div>
